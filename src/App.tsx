@@ -1,15 +1,14 @@
-// npm start
 import { useState } from 'react';
-import { useAudio } from './hooks/useAudio.ts';
-import { TUNINGS, type Tuning } from './constants/tunings.ts';
-import { getClosestString, getCents } from './utils/tunerMath.ts';
+import { useAudio } from './hooks/useAudio';
+import { TUNINGS, type Tuning } from './constants/tunings';
+import { getClosestString, getCents, type ClosestStringResult } from './utils/tunerMath';
 import { Mic, MicOff } from 'lucide-react';
 
 function App() {
   const { start, stop, isListening, pitch } = useAudio();
   const [currentTuning, setCurrentTuning] = useState<Tuning>(TUNINGS[0]);
   const [manualStringIndex, setManualStringIndex] = useState<number | null>(null);
-  let targetData = null;
+  let targetData: ClosestStringResult | null = null;
 
   if (manualStringIndex !== null) {
     const targetFreq = currentTuning.strings[manualStringIndex];

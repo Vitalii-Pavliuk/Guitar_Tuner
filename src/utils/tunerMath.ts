@@ -1,6 +1,6 @@
 import { type Tuning } from "../constants/tunings";
 
-interface ClosestStringResult {
+export interface ClosestStringResult {
   index: number;
   name: string;
   targetFreq: number;
