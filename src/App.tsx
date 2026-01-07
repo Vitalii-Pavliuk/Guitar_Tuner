@@ -1,3 +1,4 @@
+// npm start
 import { useState } from 'react';
 import { useAudio } from './hooks/useAudio.ts';
 import { TUNINGS, type Tuning } from './constants/tunings.ts';
